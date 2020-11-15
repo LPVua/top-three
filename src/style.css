@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-grey: #acacac;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.artists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  width: 100%;
+  justify-items: center;
+  gap: 1.6rem;
+}
+
+.artist {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
+.artist__picture {
+  border-radius: 1.6rem;
+  overflow: hidden;
+  width: 25rem;
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artist__name {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
