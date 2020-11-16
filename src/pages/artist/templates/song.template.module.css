@@ -1,0 +1,26 @@
+.song {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1.8rem;
+}
+
+.song__cover {
+  border-radius: 0.6rem;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-right: 1.2rem;
+  flex-shrink: 0;
+}
+
+.song__title {
+  font-size: 1.8rem;
+  color: inherit;
+}
+
+.song__album-title {
+  font-size: 1.4rem;
+  margin-top: 0.3rem;
+  color: var(--color-grey);
+}

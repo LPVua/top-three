@@ -1,27 +1,8 @@
-.artist {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.latest-songs {
+  padding: 0 2.4rem;
 }
 
-.artist__picture {
-  border-radius: 1.6rem;
-  overflow: hidden;
-  width: 25rem;
-  height: 25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.artist__name {
-  font-size: 2.4rem;
-  margin-top: 1.2rem;
+.latest-songs__title {
+  font-size: 1.8rem;
   font-weight: 600;
-}
-
-.artist__albums,
-.artist__fans {
-  color: var(--color-grey);
-  font-size: 1.6rem;
 }
