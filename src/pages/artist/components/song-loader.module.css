@@ -1,0 +1,35 @@
+.song-loader {
+  display: flex;
+  align-items: flex-start;
+}
+
+.song-loader__picture {
+  border-radius: 0.6rem;
+  margin-right: 1.2rem;
+  flex-shrink: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  background: var(--color-grey-1);
+}
+
+.song-loader__content:before,
+.song-loader__content:after {
+  background: var(--color-grey-1);
+}
+
+.song-loader__content:before {
+  content: "";
+  display: block;
+  margin-top: 1.8rem;
+  height: 1.6rem;
+  width: 15rem;
+}
+
+.song-loader__content:after {
+  content: "";
+  display: block;
+
+  margin-top: 1.8rem;
+  height: 1.4rem;
+  width: 10rem;
+}

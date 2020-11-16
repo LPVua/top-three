@@ -1,4 +1,4 @@
-import style from "./song.template.module.css";
+import style from "./song.module.css";
 
 export const songTemplate = (song) => {
   return `<div class="${style["song"]}">

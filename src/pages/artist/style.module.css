@@ -6,3 +6,29 @@
   font-size: 1.8rem;
   font-weight: 600;
 }
+
+.songs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.back-button {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  z-index: 1;
+  width: 6rem;
+  height: 6rem;
+  background: white;
+  border-bottom-right-radius: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button > svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}

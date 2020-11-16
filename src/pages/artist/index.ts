@@ -1,65 +1,36 @@
-import { eventListeners } from "../../utils/event-listeners";
 import style from "./style.module.css";
-import { artistTemplate } from "./templates/artist.template";
-import { songsTemplate } from "./templates/songs.component";
+import { ArtistComponent } from "./components/artist.component";
+import { SongsComponent } from "./components/songs.component";
+import { SearchBarComponent } from "./components/search-bar.comopnent";
 
-const renderEvent = new Event("app.render");
+const backIcon = () =>
+  `<?xml version="1.0" ?><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title/><g data-name="Layer 2" id="Layer_2"><path d="M10.1,23a1,1,0,0,0,0-1.41L5.5,17H29.05a1,1,0,0,0,0-2H5.53l4.57-4.57A1,1,0,0,0,8.68,9L2.32,15.37a.9.9,0,0,0,0,1.27L8.68,23A1,1,0,0,0,10.1,23Z"/></g></svg>`;
 
-const template = ({ artist, songs }) => `
+const template = () => `
 ${`
-  ${artistTemplate({ artist })}
+  <a class="${style["back-button"]}" href="/">${backIcon()}</a>
+
+  <div class="js-artist"></div>
   <div class="${style["latest-songs"]}">
     <h2 class="${style["latest-songs__title"]}">Latest Songs</h2>
-    <div class="js-songs"></div>
-    ${songsTemplate({ songs })}
+    <div class="js-search-bar"></div>
+    <div class="js-songs ${style["songs"]}"></div>
   </div>
 `}
 `;
 
 export const artistPage = (appElement: HTMLElement) =>
   function () {
-    const state = {
-      artist: null,
-      songs: {
-        page: 1,
-        list: [],
-        filteredList: [],
-        isLoading: true,
-      },
-    };
+    appElement.innerHTML = template();
 
-    const listeners = eventListeners({
-      ".js-search-input": {
-        input: (e: InputEvent) => {
-          console.log((e.target as HTMLInputElement).value);
-        },
-      },
+    const songs = SongsComponent(
+      appElement.querySelector(".js-songs")
+    ).setArtistId(this.artistId);
+
+    ArtistComponent(appElement.querySelector(".js-artist")).setArtistId(
+      this.artistId
+    );
+    SearchBarComponent(appElement.querySelector(".js-search-bar"), {
+      onSearch: (text) => songs.filter(text),
     });
-
-    document.addEventListener("app.render", () => {
-      appElement.innerHTML = template(state);
-      listeners.attach(appElement);
-    });
-    document.dispatchEvent(renderEvent);
-
-    const loadArtist = async () => {
-      try {
-        state.artist = await fetch(
-          "http://localhost:3000/api/artist/" + this.artistId
-        ).then((r) => r.json());
-        document.dispatchEvent(renderEvent);
-      } catch (e) {}
-    };
-
-    const loadTracks = async () => {
-      const tracks = await fetch(
-        "http://localhost:3000/api/artist/" + this.artistId + "/top?limit=25"
-      ).then((r) => r.json());
-      state.songs.list = tracks.data;
-      state.songs.filteredList = tracks.data;
-      state.songs.isLoading = false;
-      document.dispatchEvent(renderEvent);
-    };
-
-    Promise.all([loadArtist(), loadTracks()]);
   };
