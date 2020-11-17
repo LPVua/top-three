@@ -1,5 +1,9 @@
 import style from "./song.module.css";
 
+/**
+ * Song template
+ * @param song - Song to display
+ */
 export const songTemplate = (song) => {
   return `<div class="${style["song"]}">
     <div class="${style["song__cover"]}">

@@ -1,5 +1,9 @@
+import { fetchArtist } from "../../../services/artist";
 import style from "./artist.module.css";
 
+/**
+ * Artist Component Template
+ */
 const template = ({ artist }) =>
   !artist
     ? `<div class="${style["artist"]}">
@@ -19,16 +23,26 @@ const template = ({ artist }) =>
 </div>
 `;
 
+/**
+ * Artist Component
+ */
 export const ArtistComponent = (element: HTMLElement, { artistId }) => {
   let artist = null;
-  element.innerHTML = template({ artist });
+
+  const render = () => {
+    element.innerHTML = template({ artist });
+  };
+
+  render();
+
+  /**
+   * Load artist
+   */
   const loadArtist = async () => {
     try {
-      artist = await fetch(
-        "http://localhost:3000/api/artist/" + artistId
-      ).then((r) => r.json());
+      artist = await fetchArtist({ artistId });
 
-      element.innerHTML = template({ artist });
+      render();
     } catch (e) {}
   };
 
