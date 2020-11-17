@@ -1,3 +1,9 @@
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+
 .artist {
   display: flex;
   flex-direction: column;
@@ -31,7 +37,17 @@
 .artist__picture-loader {
   width: 100%;
   height: 35rem;
-  background-color: var(--color-grey);
+  background-color: var(--color-grey-1);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
 }
 
 .artist__content-loader {
@@ -41,6 +57,17 @@
 .artist__content-loader:before,
 .artist__content-loader:after {
   background: var(--color-grey-1);
+  border-radius: 0.6rem;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
 }
 
 .artist__content-loader:before {

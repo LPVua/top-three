@@ -5,6 +5,7 @@
   height: 3.6rem;
   align-items: center;
   position: relative;
+  max-width: 32rem;
 }
 
 .search-bar__search-icon {

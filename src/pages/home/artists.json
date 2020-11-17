@@ -15,6 +15,18 @@
     "type": "artist"
   },
   {
+    "id": "368033",
+    "name": "Nicky Romero",
+    "link": "https://www.deezer.com/artist/368033",
+    "picture": "https://api.deezer.com/artist/368033/image",
+    "picture_small": "https://cdns-images.dzcdn.net/images/artist/0159458ef77d2a9eaef0e22a99fce07d/56x56-000000-80-0-0.jpg",
+    "picture_medium": "https://cdns-images.dzcdn.net/images/artist/0159458ef77d2a9eaef0e22a99fce07d/250x250-000000-80-0-0.jpg",
+    "picture_big": "https://cdns-images.dzcdn.net/images/artist/0159458ef77d2a9eaef0e22a99fce07d/500x500-000000-80-0-0.jpg",
+    "picture_xl": "https://cdns-images.dzcdn.net/images/artist/0159458ef77d2a9eaef0e22a99fce07d/1000x1000-000000-80-0-0.jpg",
+    "tracklist": "https://api.deezer.com/artist/368033/top?limit=50",
+    "type": "artist"
+  },
+  {
     "id": "293585",
     "name": "Avicii",
     "link": "https://www.deezer.com/artist/293585",
@@ -27,21 +39,6 @@
     "nb_fan": 7043204,
     "radio": true,
     "tracklist": "https://api.deezer.com/artist/293585/top?limit=50",
-    "type": "artist"
-  },
-  {
-    "id": "135221",
-    "name": "Ruslana",
-    "link": "https://www.deezer.com/artist/135221",
-    "picture": "https://api.deezer.com/artist/135221/image",
-    "picture_small": "https://cdns-images.dzcdn.net/images/artist/589694776c5cf3d4454ac3d121654d39/56x56-000000-80-0-0.jpg",
-    "picture_medium": "https://cdns-images.dzcdn.net/images/artist/589694776c5cf3d4454ac3d121654d39/250x250-000000-80-0-0.jpg",
-    "picture_big": "https://cdns-images.dzcdn.net/images/artist/589694776c5cf3d4454ac3d121654d39/500x500-000000-80-0-0.jpg",
-    "picture_xl": "https://cdns-images.dzcdn.net/images/artist/589694776c5cf3d4454ac3d121654d39/1000x1000-000000-80-0-0.jpg",
-    "nb_album": 11,
-    "nb_fan": 3256,
-    "radio": true,
-    "tracklist": "https://api.deezer.com/artist/135221/top?limit=50",
     "type": "artist"
   }
 ]
