@@ -4,8 +4,6 @@ This is a frontend challenge for fetchr
 
 ![demo](./assets/demo.gif)
 
-![demo2](./assets/demo2.gif)
-
 ## Application overview
 
 This application is written using typescript. I decided to use hybrid approach for this project because of time and technology constraints. This application consist from 2 parts:
