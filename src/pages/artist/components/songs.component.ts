@@ -2,24 +2,44 @@ import { songLoaderTemplate } from "./song-loader.template";
 import { songTemplate } from "./song.template";
 import style from "./songs.module.css";
 
-const template = ({ songs }) => {
+const template = ({ songs, artistId, page }) => {
   if (songs.isLoading) {
-    return [1, 2, 3, 4].map(songLoaderTemplate).join("");
+    return `<div class="${style.songs}">${[1, 2, 3, 4]
+      .map(songLoaderTemplate)
+      .join("")}</div>`;
   }
 
-  return songs.filteredList.map(songTemplate).join("");
+  return `<div class="${style.songs}">
+    ${songs.filteredList.map(songTemplate).join("")}
+  </div>
+   ${page ? `
+    <a href="/artist/${artistId}?page=${page}" class="${
+      style["songs__pagination"]
+    }">
+      Next Page
+    </a>
+` : ''}`;
 };
 
-export const SongsComponent = (element: HTMLElement) => {
+const songsLimit = 25;
+
+export const SongsComponent = (element: HTMLElement, { artistId, page }) => {
   const songs = {
-    page: 1,
+    total: 0,
     list: [],
     filteredList: [],
     isLoading: true,
   };
-  let artistId = null;
 
-  element.innerHTML = template({ songs });
+  const render = () => {
+    const totalPages = Math.round((songs.total / (songsLimit * page));
+
+    element.innerHTML = template({
+      songs,
+      page: totalPages > 1 ? page + 1 : null,
+      artistId,
+    });
+  };
 
   const getFilteredList = (list, text: string = "") => {
     const cleanedText = text.toLowerCase().trim();
@@ -36,26 +56,24 @@ export const SongsComponent = (element: HTMLElement) => {
 
   const loadTracks = async () => {
     const tracks = await fetch(
-      "http://localhost:3000/api/artist/" + artistId + "/top?limit=25"
+      `http://localhost:3000/api/artist/${artistId}/top?limit=${songsLimit}&index=${
+        (page - 1) * songsLimit
+      }`
     ).then((r) => r.json());
     songs.list = tracks.data;
     songs.filteredList = getFilteredList(songs.list);
     songs.isLoading = false;
+    songs.total = tracks.total;
 
-    element.innerHTML = template({ songs });
+    render();
   };
+
+  loadTracks();
 
   const component = {
     filter: (text: string) => {
       songs.filteredList = getFilteredList(songs.list, text);
-      element.innerHTML = template({ songs });
-    },
-    setArtistId: (id: string) => {
-      artistId = id;
-
-      loadTracks();
-
-      return component;
+      render();
     },
   };
 

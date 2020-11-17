@@ -59,3 +59,25 @@
   height: 1.4rem;
   width: 10rem;
 }
+
+@media all and (min-width: 769px) {
+  .artist {
+    flex-direction: row;
+  }
+
+  .artist__picture {
+    width: 320px;
+    height: 320px;
+    align-items: flex-start;
+    border-bottom-right-radius: 3.6rem;
+  }
+
+  .artist__picture > img {
+    width: 100%;
+    height: auto;
+  }
+
+  .artist__picture-loader {
+    width: 320px;
+  }
+}

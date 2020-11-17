@@ -14,7 +14,7 @@ ${`
   <div class="${style["latest-songs"]}">
     <h2 class="${style["latest-songs__title"]}">Latest Songs</h2>
     <div class="js-search-bar"></div>
-    <div class="js-songs ${style["songs"]}"></div>
+    <div class="js-songs"></div>
   </div>
 `}
 `;
@@ -23,13 +23,14 @@ export const artistPage = (appElement: HTMLElement) =>
   function () {
     appElement.innerHTML = template();
 
-    const songs = SongsComponent(
-      appElement.querySelector(".js-songs")
-    ).setArtistId(this.artistId);
+    const songs = SongsComponent(appElement.querySelector(".js-songs"), {
+      artistId: this.artistId,
+      page: Number(this.page) || 1,
+    });
 
-    ArtistComponent(appElement.querySelector(".js-artist")).setArtistId(
-      this.artistId
-    );
+    ArtistComponent(appElement.querySelector(".js-artist"), {
+      artistId: this.artistId,
+    });
     SearchBarComponent(appElement.querySelector(".js-search-bar"), {
       onSearch: (text) => songs.filter(text),
     });

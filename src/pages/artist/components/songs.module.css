@@ -1,0 +1,21 @@
+.songs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 1.6rem;
+  margin: 1.6rem 0;
+}
+
+.songs__pagination {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
+  height: 4.2rem;
+  display: inline-flex;
+  border: 1px solid var(--color-grey-1);
+  padding: 0 1.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  margin-bottom: 2.4rem;
+}

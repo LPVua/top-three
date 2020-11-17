@@ -19,8 +19,7 @@ const template = ({ artist }) =>
 </div>
 `;
 
-export const ArtistComponent = (element: HTMLElement) => {
-  let artistId = null;
+export const ArtistComponent = (element: HTMLElement, { artistId }) => {
   let artist = null;
   element.innerHTML = template({ artist });
   const loadArtist = async () => {
@@ -33,13 +32,5 @@ export const ArtistComponent = (element: HTMLElement) => {
     } catch (e) {}
   };
 
-  const component = {
-    setArtistId: (id: string) => {
-      artistId = id;
-
-      loadArtist();
-    },
-  };
-
-  return component;
+  loadArtist();
 };

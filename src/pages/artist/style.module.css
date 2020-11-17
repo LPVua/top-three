@@ -7,13 +7,6 @@
   font-weight: 600;
 }
 
-.songs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-  gap: 1.6rem;
-  margin-top: 1.6rem;
-}
-
 .back-button {
   position: absolute;
   top: 0rem;
